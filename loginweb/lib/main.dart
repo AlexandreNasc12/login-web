@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
             // MediaQuery.of(context).size.width >= 980
             //     ? Menu()
             //     : SizedBox(), // Responsive
-            //Body()
+            Body()
           ]),
     );
   }
@@ -118,22 +118,85 @@ class Menu extends StatelessWidget {
       ),
     );
   }
+}
 
-  class Body extends StatelessWidget{
-    @override
-    Widget build(BuildContext context){
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            'Cadastre-se em minha aplicação',
-            style: TextStyle(
-              fontSize: 45,
-              fontWeight: FontWeight.bold,
-            ),
+class Body extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          width: 360,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Sign In to \nMy Application',
+                style: TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "If you don't have an account",
+                style: TextStyle(
+                    color: Colors.black54, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "You can",
+                    style: TextStyle(
+                        color: Colors.black54, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 15),
+                  GestureDetector(
+                    onTap: () {
+                      print(MediaQuery.of(context).size.width);
+                    },
+                    child: Text(
+                      "Register here!",
+                      style: TextStyle(
+                          color: Colors.deepPurple,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+              Image.asset(
+                'images/illustration-2.png',
+                width: 300,
+              ),
+            ],
           ),
-        ],
-      );
-    } 
+        ),
+
+        Image.asset(
+          'images/illustration-1.png',
+          width: 300,
+        ),
+        // MediaQuery.of(context).size.width >= 1300 //Responsive
+        //     ? Image.asset(
+        //         'images/illustration-1.png',
+        //         width: 300,
+        //       )
+        //     : SizedBox(),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              vertical: MediaQuery.of(context).size.height / 6),
+          child: Container(
+            width: 320,
+            // child: _formLogin(),
+          ),
+        )
+      ],
+    );
   }
 }
